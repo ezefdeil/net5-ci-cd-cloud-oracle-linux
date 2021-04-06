@@ -16,14 +16,10 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
-    - name: Move to App Folder
-      run: cd TestingCICD
-    - name: List Current Folder
-      run: ls
+        dotnet-version: 5.0.x    
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore -p TestingCICD
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build -p TestingCICD --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test -p TestingCICD --no-build --verbosity normal
