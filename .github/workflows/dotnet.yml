@@ -36,10 +36,3 @@ jobs:
         user: ubuntu                
         # Private SSH key to connect with
         private_key: ${{ secrets.UBUNTUSSHKEY }}
-        
-        
-        
-        
-    
-    
-    session_timeout: # optional
