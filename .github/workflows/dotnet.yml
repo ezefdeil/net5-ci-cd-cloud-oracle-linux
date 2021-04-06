@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 5.0.x    
     - name: Restore dependencies
-      run: dotnet restore --project "TestingCICD/TestingCICD.csproj"
+      run: cd TestingCICD && dotnet restore"
     - name: Build
-      run: dotnet build -p TestingCICD/TestingCICD.csproj --no-restore
+      run: cd TestingCICD && dotnet build --no-restore
     - name: Test
-      run: dotnet test -p TestingCICD/TestingCICD.csproj --no-build --verbosity normal
+      run: cd TestingCICD && dotnet test --no-build --verbosity normal
