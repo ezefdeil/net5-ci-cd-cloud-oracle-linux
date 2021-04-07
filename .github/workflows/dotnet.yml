@@ -30,7 +30,7 @@ jobs:
         host: 129.151.98.40
         username: ubuntu
         key: ${{ secrets.UBUNTUSSHKEY }}
-        port: ${{ secrets.PORT }}
+        port: 22
         script: ./AutoDeployPoloMC.sh
     
     
