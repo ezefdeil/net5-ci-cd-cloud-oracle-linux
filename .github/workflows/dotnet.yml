@@ -23,16 +23,16 @@ jobs:
       run: cd TestingCICD && dotnet build --no-restore
     - name: Test
       run: cd TestingCICD && dotnet test --no-build --verbosity normal
-    - name: SSH command runner
-    # You may pin to the exact commit or the version.
-    # uses: Evaneos/ssh-action@0e5f8933569a924cad91d22e30f7ecfb5d8426f2
-      uses: Evaneos/ssh-action@v0.1.0
+    
+    - name: executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@master
       with:
-        # Remote host(s) to connect to
-        hosts: 129.151.98.40
-        # One or multiple commands to run on the remote host(s)
-        commands: ./AutoDeployPoloMC.sh
-        # Remote user to connect with
-        user: ubuntu                
-        # Private SSH key to connect with
-        private_key: ${{ secrets.UBUNTUSSHKEY }}
+        host: 129.151.98.40
+        username: ubuntu
+        key: ${{ secrets.UBUNTUSSHKEY }}
+        port: ${{ secrets.PORT }}
+        script: ./AutoDeployPoloMC.sh
+    
+    
+     
+        
